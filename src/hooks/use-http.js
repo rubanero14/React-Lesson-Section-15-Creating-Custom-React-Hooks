@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useHttp = (processData, requestConfig) => {
+const useHttp = (processData, requestConfig = null) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -11,6 +11,12 @@ const useHttp = (processData, requestConfig) => {
       const response = await fetch(
         "https://react-certification-68c63-default-rtdb.firebaseio.com/tasks.json",
         requestConfig
+          ? {
+              method: requestConfig.method,
+              body: JSON.stringify(requestConfig.body),
+              headers: requestConfig.headers,
+            }
+          : null
       );
 
       if (!response.ok) {
@@ -19,6 +25,8 @@ const useHttp = (processData, requestConfig) => {
 
       const data = await response.json();
 
+      
+      
       processData(data);
     } catch (err) {
       setError(err.message || "Something went wrong!");
