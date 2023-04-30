@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import Tasks from "./components/Tasks/Tasks";
 import NewTask from "./components/NewTask/NewTask";
@@ -7,7 +7,7 @@ import useHttp from "./hooks/use-http";
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  const processTask = (data) => {
+  const processTask = useCallback((data) => {
     const loadedTasks = [];
 
     for (const taskKey in data) {
@@ -15,7 +15,7 @@ function App() {
     }
 
     setTasks(loadedTasks);
-  };
+  }, []);
 
   const { isLoading, error, fetchApi: fetchTasks } = useHttp(processTask, null);
 
