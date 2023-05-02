@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 body {
@@ -13,18 +14,28 @@ body {
   background-color: #3f3f3f;
 }
 
-button {
+.btn {
   cursor: pointer;
   font: inherit;
   background-color: #7a0144;
   border: 1px solid #7a0144;
-  border-radius: 20px;
   padding: 0.5rem 2rem;
   color: white;
+  text-decoration: none;
 }
 
-button:hover,
-button:active {
+.btn:hover,
+.btn:active {
   background-color: #9c095a;
   border-color: #9c095a;
+}
+
+.btn:nth-child(2) {
+  border-radius: 20px 0 0 20px;
+  margin-right: 0px;
+}
+
+.btn:last-child {
+  border-radius: 0px 20px 20px 0 !important;
+  margin-left: 0px;
 }
