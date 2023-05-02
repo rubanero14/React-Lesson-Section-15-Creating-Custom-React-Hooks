@@ -22,7 +22,12 @@ const TaskForm = (props) => {
         {!props.loading && <i class="bi bi-plus-circle"></i>}
         {props.loading ? "Sending..." : " Add Task"}
       </button>
-      <a className="btn" href="/" target="_blank">
+      <a
+        className="btn"
+        href="https://github.com/rubanero14/React-Lesson-Section-15-Creating-Custom-React-Hooks"
+        target="_blank"
+        rel="noreferrer"
+      >
         <i class="bi bi-filetype-jsx"></i> Source Code
       </a>
     </form>
